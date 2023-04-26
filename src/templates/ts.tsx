@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import styles from "./COMPONENT_NAME.module.css";
 
-type Props = {}
+export type COMPONENT_NAMEProps = {};
 
-function COMPONENT_NAME({}: Props) {
+function COMPONENT_NAME({}: COMPONENT_NAMEProps) {
   return <div></div>;
 }
 
