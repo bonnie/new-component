@@ -1,10 +1,12 @@
 import React from "react";
-import styles from "./COMPONENT_NAME.module.css";
+import { css } from "~/styled-system/css";
 
 export type COMPONENT_NAMEProps = {};
 
 function COMPONENT_NAME({}: COMPONENT_NAMEProps) {
-  return <div></div>;
+  return <div className={wrapper}></div>;
 }
+
+const wrapper = css({});
 
 export default COMPONENT_NAME;
