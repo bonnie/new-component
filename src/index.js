@@ -56,7 +56,6 @@ const indexExtension = "ts";
 
 // Find the path to the selected template file.
 const templatePath = "./templates/ts.tsx";
-const cssTemplatePath = "./templates/styles.css";
 
 // Get all of our file paths worked out, for the user's project.
 const componentDir = `${options.dir}/${componentName}`;
@@ -115,19 +114,6 @@ mkDirPromise(componentDir)
   .then((template) => {
     logItemCompletion("Component built and saved to disk.");
     return template;
-  })
-  .then(() => readFilePromiseRelative(cssTemplatePath))
-  .then((cssTemplate) =>
-    // Replace our placeholders with real data (so far, just the component name)
-    cssTemplate.replace(/COMPONENT_NAME/g, componentName)
-  )
-  .then((cssTemplate) =>
-    // Format it using prettier, to ensure style consistency, and write to file.
-    writeFilePromise(cssFilePath, prettify(cssTemplate))
-  )
-  .then((cssTemplate) => {
-    logItemCompletion("CSS built and saved to disk.");
-    return cssTemplate;
   })
   .then(() =>
     // We also need the `index.js` file, which allows easy importing.
